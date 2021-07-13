@@ -1,0 +1,10 @@
+{
+  "name": "cake-ui",
+  "version": "1.0.0",
+  "description": "🚀 Modular UI library, focusing on accessibility for React applications",
+  "main": "index.js",
+  "repository": "https://github.com/cake-ui/cake-ui",
+  "author": "Matheus Kindrazki",
+  "license": "MIT",
+  "private": true
+}
