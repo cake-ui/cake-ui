@@ -1,0 +1,67 @@
+{
+  "name": "@cake-ui/media-query",
+  "version": "1.0.0",
+  "description": "A React hook for changing properties or visibility of a component based on css media query",
+  "keywords": [
+    "chakra ui",
+    "breakpoint",
+    "matchMedia",
+    "react",
+    "responsive",
+    "viewport"
+  ],
+  "sideEffects": false,
+  "author": "Matheus Kindrazki",
+  "homepage": "https://github.com/cake-ui/cake-ui#readme",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/cake-ui/cake-ui/tree/master/packages/media-query",
+  "bugs": {
+    "url": "https://github.com/cake-ui/cake-ui/issues"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "start": "nodemon --watch src --exec yarn build -e ts,tsx",
+    "build": "concurrently yarn:build:*",
+    "test": "jest --env=jsdom --passWithNoTests",
+    "lint": "concurrently yarn:lint:*",
+    "version": "yarn build",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "test:cov": "yarn test --coverage",
+    "lint:src": "eslint src --ext .ts,.tsx --config ../../.eslintrc",
+    "lint:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cake-ui/react-env": "1.0.0",
+    "@cake-ui/utils": "1.0.0"
+  },
+  "devDependencies": {
+    "@cake-ui/system": "1.0.0",
+    "@cake-ui/test-utils": "1.0.30",
+    "@cake-ui/theme": "*",
+    "jest-matchmedia-mock": "^1.0.1",
+    "react": "^17.0.1"
+  },
+  "peerDependencies": {
+    "@cake-ui/system": ">=1.0.0",
+    "@cake-ui/theme": ">=1.0.0",
+    "react": ">=16.8.6"
+  }
+}
