@@ -12,6 +12,8 @@ import * as React from "react"
 import { FaMoon, FaSun } from "react-icons/fa"
 import { withPerformance } from "storybook-addon-performance"
 
+import { create } from "@storybook/theming"
+
 /**
  * Add global context for RTL-LTR switching
  */

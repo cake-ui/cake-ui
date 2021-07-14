@@ -69,6 +69,7 @@
     "@storybook/addon-toolbars": "~6.2.2",
     "@storybook/cli": "~6.2.2",
     "@storybook/react": "~6.2.2",
+    "@storybook/theming": "^6.3.4",
     "@types/jest": "^26.0.19",
     "@types/node": "^14.14.19",
     "@types/react": "^17.0.0",
