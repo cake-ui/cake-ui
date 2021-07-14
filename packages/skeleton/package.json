@@ -1,0 +1,64 @@
+{
+  "name": "@cake-ui/skeleton",
+  "version": "1.0.0",
+  "description": "React component to render a placeholders while you wait for content to load",
+  "keywords": [
+    "skeleton",
+    "loading",
+    "shim",
+    "chakra ui",
+    "theme",
+    "theming",
+    "ui mode",
+    "ui"
+  ],
+  "sideEffects": false,
+  "author": "Matheus Kindrazki",
+  "homepage": "https://github.com/cake-ui/cake-ui#readme",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/cake-ui/cake-ui/tree/master/packages/skeleton",
+  "bugs": {
+    "url": "https://github.com/cake-ui/cake-ui/issues"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "start": "nodemon --exec yarn build --watch src",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "build": "concurrently yarn:build:*",
+    "test": "jest --env=jsdom --passWithNoTests",
+    "test:cov": "yarn test --coverage",
+    "lint:src": "eslint src --ext .ts,.tsx --config ../../.eslintrc",
+    "lint:types": "tsc --noEmit",
+    "lint": "concurrently yarn:lint:*"
+  },
+  "dependencies": {
+    "@cake-ui/hooks": "1.0.0",
+    "@cake-ui/media-query": "1.0.0",
+    "@cake-ui/system": "1.0.0",
+    "@cake-ui/utils": "1.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.6"
+  },
+  "devDependencies": {
+    "react": "^17.0.1"
+  }
+}

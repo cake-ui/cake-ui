@@ -1,0 +1,72 @@
+{
+  "name": "@cake-ui/toast",
+  "version": "1.0.0",
+  "description": "description",
+  "keywords": [
+    "theme",
+    "theming",
+    "ui mode",
+    "ui"
+  ],
+  "sideEffects": [
+    "./src/toast.manager.tsx"
+  ],
+  "author": "Matheus Kindrazki",
+  "homepage": "https://github.com/cake-ui/cake-ui#readme",
+  "license": "MIT",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/types/index.d.ts",
+  "typings": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "default": "./dist/esm/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": "https://github.com/cake-ui/cake-ui/tree/master/packages/toast",
+  "bugs": {
+    "url": "https://github.com/cake-ui/cake-ui/issues"
+  },
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "start": "nodemon --watch src --exec yarn build -e ts,tsx",
+    "build": "concurrently yarn:build:*",
+    "test": "jest --env=jsdom --passWithNoTests",
+    "lint": "concurrently yarn:lint:*",
+    "version": "yarn build",
+    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .ts,.tsx -d dist/esm --source-maps",
+    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .ts,.tsx -d dist/cjs --source-maps",
+    "build:types": "tsc --emitDeclarationOnly --declaration --declarationDir dist/types",
+    "test:cov": "yarn test --coverage",
+    "lint:src": "eslint src --ext .ts,.tsx --config ../../.eslintrc",
+    "lint:types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@cake-ui/alert": "1.0.0",
+    "@cake-ui/close-button": "1.0.0",
+    "@cake-ui/hooks": "1.0.0",
+    "@cake-ui/theme": "1.0.0",
+    "@cake-ui/transition": "1.0.0",
+    "@cake-ui/utils": "1.0.0",
+    "@reach/alert": "0.13.2"
+  },
+  "devDependencies": {
+    "@cake-ui/system": "1.0.0",
+    "framer-motion": "^4.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "peerDependencies": {
+    "@cake-ui/system": ">=1.0.0",
+    "framer-motion": "3.x || 4.x",
+    "react": ">=16.8.6",
+    "react-dom": ">=16.8.6"
+  }
+}
