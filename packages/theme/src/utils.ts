@@ -1,7 +1,7 @@
 import { isObject } from "@cake-ui/utils"
-import { ChakraTheme } from "./theme.types"
+import { CakeTheme } from "./theme.types"
 
-export const requiredChakraThemeKeys: (keyof ChakraTheme)[] = [
+export const requiredCakeThemeKeys: (keyof CakeTheme)[] = [
   "borders",
   "breakpoints",
   "colors",
@@ -22,12 +22,12 @@ export const requiredChakraThemeKeys: (keyof ChakraTheme)[] = [
   "zIndices",
 ]
 
-export function isChakraTheme(unit: unknown): unit is ChakraTheme {
+export function isCakeTheme(unit: unknown): unit is CakeTheme {
   if (!isObject(unit)) {
     return false
   }
 
-  return requiredChakraThemeKeys.every((propertyName) =>
+  return requiredCakeThemeKeys.every((propertyName) =>
     Object.prototype.hasOwnProperty.call(unit, propertyName),
   )
 }

@@ -1,20 +1,34 @@
 import { mode, Styles } from "@cake-ui/theme-tools"
 
+// TODO: Isso precisa ser revisto a substituição não é perfeita
+
 const styles: Styles = {
   global: (props) => ({
     body: {
       fontFamily: "body",
-      color: mode("gray.800", "whiteAlpha.900")(props),
-      bg: mode("white", "gray.800")(props),
+      color: mode(
+        "$on-color-neutral-grey.800",
+        "$on-color-neutral-grey.100",
+      )(props),
+      bg: mode(
+        "$on-color-neutral-grey.100",
+        "$on-color-neutral-grey.800",
+      )(props),
       transitionProperty: "background-color",
       transitionDuration: "normal",
       lineHeight: "base",
     },
     "*::placeholder": {
-      color: mode("gray.400", "whiteAlpha.400")(props),
+      color: mode(
+        "$on-color-neutral-grey.400",
+        "$on-color-neutral-grey.100",
+      )(props),
     },
     "*, *::before, &::after": {
-      borderColor: mode("gray.200", "whiteAlpha.300")(props),
+      borderColor: mode(
+        "$on-color-neutral-grey.200",
+        "$on-color-neutral-grey.100",
+      )(props),
       wordWrap: "break-word",
     },
   }),

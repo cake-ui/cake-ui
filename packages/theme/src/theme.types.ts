@@ -42,7 +42,7 @@ export interface ComponentDefaultProps
   extends Omit<ThemingProps, "styleConfig">,
     Dict {}
 
-export interface ThemeComponentProps<Theme extends ChakraTheme = ChakraTheme>
+export interface ThemeComponentProps<Theme extends CakeTheme = CakeTheme>
   extends Dict,
     Omit<ThemingProps, "styleConfig"> {
   colorMode: ColorMode
@@ -51,10 +51,10 @@ export interface ThemeComponentProps<Theme extends ChakraTheme = ChakraTheme>
 
 export type ThemeComponentFunction<
   Style,
-  Theme extends ChakraTheme = ChakraTheme,
+  Theme extends CakeTheme = CakeTheme,
 > = (props: ThemeComponentProps<Theme>) => Style
 
-export type ThemingPropsThunk<Style, Theme extends ChakraTheme = ChakraTheme> =
+export type ThemingPropsThunk<Style, Theme extends CakeTheme = CakeTheme> =
   | Style
   | ThemeComponentFunction<Style, Theme>
 
@@ -105,7 +105,7 @@ interface Foundations extends Typography {
   zIndices: RecursiveObject
 }
 
-export interface ChakraTheme extends Foundations {
+export interface CakeTheme extends Foundations {
   components: ThemeComponents
   config: ThemeConfig
   direction: ThemeDirection

@@ -8,7 +8,7 @@ const direction = "ltr" as ThemeDirection
 const config: ThemeConfig = {
   useSystemColorMode: false,
   initialColorMode: "light",
-  cssVarPrefix: "chakra",
+  cssVarPrefix: "$on",
 }
 
 export const theme = {
@@ -19,13 +19,7 @@ export const theme = {
   config,
 }
 
-export type Theme = typeof theme
-
-/**
- * @deprecated
- * Duplicate theme type. Please use `Theme`
- */
-export type DefaultChakraTheme = Theme
+export type DefaultCakeTheme = typeof theme
 
 export * from "./theme.types"
 export * from "./utils"
